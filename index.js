@@ -12,10 +12,9 @@ import Category from "./models/CategoryModel";
 const app = express();
 
 dotenv.config();
-
 mongoose
-  .connect(process.env.MONGO_URL)
-  .then(() => console.log(`DB Connection Successfull! ${process.env.PORT}`))
+  .connect(process.env.MONGO_URL, { useNewUrlParser: true, useUnifiedTopology: true })
+  .then(() => console.log(`DB Connection Successfully! ${process.env.PORT}`))
   .catch((err) => {
     console.log(err);
   });
